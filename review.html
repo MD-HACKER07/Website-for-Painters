@@ -1,0 +1,22 @@
+<?php
+include("db.html");
+
+if($_POST['name']){
+    $name = $_POST['name'];
+    $email= $_POST['email'];
+    $phone = $_POST['phone'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+    
+    $sql = "INSERT INTO review (Name,Email,Phone,Subject,Message)values ('$name','$email','$phone','$subject','$message')";
+    
+    $result = $conn->query($sql);
+    // echo $result;exit;
+    
+
+    header('Location:index.html');
+}else{
+    header('Location:contact.html');
+}
+
+?>
